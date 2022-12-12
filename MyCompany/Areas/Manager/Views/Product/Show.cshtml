@@ -1,0 +1,52 @@
+﻿@model IQueryable<Product>
+
+@if (Model.Any())
+{
+    <div>
+        <table>
+            <tr>
+                <th colspan="2">Товары</th>
+                <th>Цена</th>
+                <th>Находится на главном меню?</th>
+                <th>Доступна для заказа?</th>
+                <th colspan="3">Управление</th>
+            </tr>
+            @foreach (Product entity in Model)
+            {
+                <tr>
+                    <td><img src="~/images/@entity.TitleImagePath" alt="" class="img" /></td>
+                    <td>@($"{entity.Title}")</td>
+                    <td>@($"{entity.cost}")</td>
+                    @if ($"{entity.isFavorites}" == $"True")
+                    {
+                        <td class="h7 y">Да</td>
+                    }
+                    else
+                    {
+                        <td class="h7 n">Нет</td>
+                    }
+                    @if ($"{entity.available}" == $"True")
+                    {
+                        <td class="h7 y">Да</td>
+                    }
+                    else
+                    {
+                        <td class="h7 n">Нет</td>
+                    }
+                    <td> <a asp-area="Manager" asp-controller="Product" asp-action="Edit" asp-route-id="@entity.Id">редактировать</a> </td>
+                    <td>
+                        <form style="display: inline-block;" id="form-@entity.Id" asp-area="Manager" asp-controller="Product" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@entity.Id">
+                            <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">удалить</a>
+                        </form>
+                    </td>
+                    <td> <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a> </td>
+                </tr>
+                }
+        </table>
+    </div>
+}
+else
+{
+    <h1>В данный момент товары отсутвствуют</h1>
+}

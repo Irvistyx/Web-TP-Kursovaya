@@ -1,0 +1,18 @@
+﻿@model TextField
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+}
+@if (ViewBag.Title == null)
+{
+                @Config.CompanyEmail<br/>
+                @Config.CompanyName<br/>
+                @Config.CompanyPhone
+ }
+else
+{
+    <div>
+        @Html.Raw(Model.Text);
+    </div>
+}

@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <header id="header">
+                <h1><a href="/" id="logo">@Config.CompanyName</a></h1>
+                <nav id="nav">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                    <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Наши услуги</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                    <a asp-area="" asp-controller="Product" asp-action="">Товары</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="MyAccount">Личный кабинет</a>
+
+                        if (User.IsInRole("manager"))
+                        {
+                            <a asp-area="Manager" asp-controller="Home" asp-action="Index">Панель Менеджера</a>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Login">Авторизоваться</a>
+                    }
+                </nav>
+            </header>
+        </div>
+    </div>
+</div>

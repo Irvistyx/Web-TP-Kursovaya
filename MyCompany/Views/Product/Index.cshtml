@@ -1,0 +1,26 @@
+﻿@model IQueryable<Product>
+@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.MetaTitle;
+    ViewBag.Description = textField.MetaDescription;
+    ViewBag.Keywords = textField.MetaKeywords;
+}
+<title>Все товары</title>
+<div>
+    @if (Model.Any())
+    {
+        <ul class="big-image-list">
+            @foreach (Product entity in Model)
+            {
+                <li>
+                    <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
+                    </a>
+                    <h4>@entity.Title</h4>
+                    <p>@entity.Subtitle</p>
+                </li>
+            }
+        </ul>
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿@model MyAccountViewModel
+
+<div>
+    <h1>Личный кабинет</h1>
+    <div class="div-box">
+        <form asp-area="" asp-controller="Account" asp-action="MyAccount" method="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <p>@Model.Name</p>
+            </div>
+            <div>
+                <p>@Model.Email</p>
+            </div>
+            <div>
+                <p>@Model.Password</p>
+            </div>
+        </form>
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <input type="submit" value="Выйти" />
+        </form>
+    </div>
+</div>
