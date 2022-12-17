@@ -1,0 +1,24 @@
+﻿@model IQueryable<Basket>
+
+@if (Model.Any())
+{
+    <section>
+        <h4>Корзина</h4>
+        <ul class="small-image-list">
+            @foreach (Basket entity in Model)
+             {   
+                <li>
+                    <a asp-area="" asp-controller="Basket" asp-action="Index" asp-route-id="@entity.id">
+                        <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
+                    </a>
+                    <h4>
+                        @entity.product
+                    </h4>
+                    <p>
+                        @entity.
+                    </p>
+                </li>
+            }
+        </ul>
+    </section>
+}

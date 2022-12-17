@@ -10,8 +10,8 @@ using MyCompany.Domain;
 namespace MyCompany.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221209074845_Initial")]
-    partial class Initial
+    [Migration("20221217222248_Ititial")]
+    partial class Ititial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,14 +51,14 @@ namespace MyCompany.Migrations
                         new
                         {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "28776496-aa79-4ee3-a6db-7548f242a198",
+                            ConcurrencyStamp = "1d348d66-de6c-47e4-ae1e-10ff1f08913b",
                             Name = "manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
                             Id = "04514eu51-5912-4a8f-bhf1-74830vb172gh",
-                            ConcurrencyStamp = "6112b382-3e59-4ede-b7d6-3090965ca0ec",
+                            ConcurrencyStamp = "335da1df-28ec-4704-ae8a-77f51788cd7e",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -157,13 +157,13 @@ namespace MyCompany.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "accaac16-3fbf-43ad-b9d6-81a021a21202",
+                            ConcurrencyStamp = "5e83d66d-141a-40c7-be22-5959c063d53b",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "MANAGER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDFCQIqg88XNMo5gYriuzNc0vqC2iIQVIGtJZxGP8aXhlwmtU4js7lqeHnx0S70R/w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJD22IXrxUmzhQiuQS4Cloo1xj+A/cEjRbfvmFZGeuRDMOOVowL/2aCKXDE5d2RRhw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -382,7 +382,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2022, 12, 9, 7, 48, 44, 970, DateTimeKind.Utc).AddTicks(3084),
+                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(1961),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -390,7 +390,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2022, 12, 9, 7, 48, 44, 970, DateTimeKind.Utc).AddTicks(6853),
+                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3728),
                             Text = "Содержание заполняется администратором",
                             Title = "Наши услуги"
                         },
@@ -398,7 +398,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2022, 12, 9, 7, 48, 44, 970, DateTimeKind.Utc).AddTicks(6994),
+                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3792),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         },
@@ -406,10 +406,87 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("64576a4c-c59d-443a-84c1-06e6487a137a"),
                             CodeWord = "PageProducts",
-                            DateAdded = new DateTime(2022, 12, 9, 7, 48, 44, 970, DateTimeKind.Utc).AddTicks(7054),
+                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3820),
                             Text = "Содержание заполняется администратором",
                             Title = "Товары"
                         });
+                });
+
+            modelBuilder.Entity("MyCompany.Models.Basket", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BasketInside")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("cost")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("productId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("MyCompany.Models.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("MyCompany.Models.OrderDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("Cost")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid>("OrderID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -459,6 +536,28 @@ namespace MyCompany.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MyCompany.Models.Basket", b =>
+                {
+                    b.HasOne("MyCompany.Domain.Entities.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("productId");
+                });
+
+            modelBuilder.Entity("MyCompany.Models.OrderDetail", b =>
+                {
+                    b.HasOne("MyCompany.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyCompany.Domain.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

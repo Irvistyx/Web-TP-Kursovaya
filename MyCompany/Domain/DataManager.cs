@@ -7,12 +7,17 @@ namespace MyCompany.Domain
         public ITextFieldsRepository TextFields { get; set; }
         public IServiceItemsRepository ServiceItems { get; set; }
         public IProductItem ProductItem { get; set; }
+        public IAllOrder AllOrder { get; set; }
+        //public IBasket Basket { get; set; }
 
-        public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository, IProductItem productItem)
+
+        public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository, IProductItem productItem, IAllOrder allOrder)
         {
             TextFields = textFieldsRepository;
             ServiceItems = serviceItemsRepository;
             ProductItem = productItem;
+            AllOrder = allOrder;
+ //           Basket = basket;
         }
     }
 }

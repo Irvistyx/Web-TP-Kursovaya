@@ -8,6 +8,7 @@
                     <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Наши услуги</a>
                     <a asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
                     <a asp-area="" asp-controller="Product" asp-action="">Товары</a>
+                    <a asp-area="" asp-controller="Basket" asp-action="Index" >Корзина</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a asp-area="" asp-controller="Account" asp-action="MyAccount">Личный кабинет</a>

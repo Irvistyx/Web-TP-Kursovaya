@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WladR\\Desktop\\MyCompany\\MyCompany.csproj": {}
+    "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\MyCompany.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WladR\\Desktop\\MyCompany\\MyCompany.csproj": {
+    "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\MyCompany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WladR\\Desktop\\MyCompany\\MyCompany.csproj",
+        "projectUniqueName": "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\MyCompany.csproj",
         "projectName": "MyCompany",
-        "projectPath": "C:\\Users\\WladR\\Desktop\\MyCompany\\MyCompany.csproj",
+        "projectPath": "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\MyCompany.csproj",
         "packagesPath": "C:\\Users\\WladR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WladR\\Desktop\\MyCompany\\obj\\",
+        "outputPath": "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\C#\\Other\\NuGetPackages",
@@ -46,9 +46,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -70,13 +78,17 @@
               "target": "Package",
               "version": "[3.1.1, )"
             },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[3.1.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.5, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyCompany.Domain.Entities;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace MyCompany.Domain.Repositories.Abstract
 {
+    [NotMapped]
     public class ProductRepository: IProductItem
     {
         private readonly AppDbContext context;

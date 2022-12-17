@@ -831,10 +831,10 @@ section:last-child, article:last-child {
 .container {
   margin: 0 auto;
   max-width: 100%;
-  width: 1200px; }
+  width: 1300px; }
   @media screen and (max-width: 1680px) {
     .container {
-      width: 1200px; } }
+      width: 1300px; } }
   @media screen and (max-width: 1280px) {
     .container {
       width: calc(100% - 70px); } }
@@ -1023,7 +1023,6 @@ ul.link-list li {
 #copyright {
     text-align: center;
     color: #000000;
-    border-top: solid 1px #ced0b7;
     padding: 3em 0 0 0;
     margin: 3em 0 0 0;
 }

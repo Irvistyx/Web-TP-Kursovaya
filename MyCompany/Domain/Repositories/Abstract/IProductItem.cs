@@ -14,4 +14,4 @@ namespace MyCompany.Domain.Repositories.Abstract
         void SaveProductItem(Product entity);
         void DeleteProductItem(Guid id);
     }
-}
+}          

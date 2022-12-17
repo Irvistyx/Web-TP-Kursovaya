@@ -10,8 +10,10 @@
 <div>
     @if (Model.Any())
     {
-        <ul class="big-image-list">
-            @foreach (Product entity in Model)
+    <ul class="big-image-list">
+        @foreach (Product entity in Model)
+        {
+            @if (entity.available == true)
             {
                 <li>
                     <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@entity.Id">
@@ -19,8 +21,10 @@
                     </a>
                     <h4>@entity.Title</h4>
                     <p>@entity.Subtitle</p>
+                    <a class="bnt btn-warning" asp-area="" asp-controller="Basket" asp-action="addToBasket" asp-route-id="@entity.Id">Добавить в корзину</a>
                 </li>
             }
-        </ul>
+        }
+    </ul>
     }
 </div>

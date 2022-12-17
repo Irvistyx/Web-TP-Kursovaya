@@ -16,7 +16,7 @@
                 <tr>
                     <td><img src="~/images/@entity.TitleImagePath" alt="" class="img" /></td>
                     <td>@($"{entity.Title}")</td>
-                    <td>@($"{entity.cost}")</td>
+                    <td>@($"{entity.cost.ToString("c")}")</td>
                     @if ($"{entity.isFavorites}" == $"True")
                     {
                         <td class="h7 y">Да</td>

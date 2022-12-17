@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using MyCompany.Domain;
 using MyCompany.Domain.Repositories;
 using MyCompany.Domain.Repositories.Abstract;
 using MyCompany.Domain.Repositories.EntityFramework;
+using MyCompany.Models;
 using MyCompany.Service;
 
 namespace MyCompany
@@ -28,6 +30,7 @@ namespace MyCompany
             services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
             services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
             services.AddTransient<IProductItem, ProductRepository>();
+            services.AddTransient<IAllOrder, EFOrderRepository>();
             services.AddTransient<DataManager>();
 
             //подключаем контекст БД
@@ -54,20 +57,28 @@ namespace MyCompany
                 options.SlidingExpiration = true;
             });
 
-            //настраиваем политику авторизации для Admin area
+            //настраиваем политику авторизации для Manager area
             services.AddAuthorization(x =>
             {
-                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("Admin"); });
             });
+            //Сервис для работы с сессиями
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //Сервис для многопользовательского использования сайта
+            services.AddScoped(sp => BasketInside.GetProduct(sp));
 
             //добавляем сервисы для контроллеров и представлений (MVC)
             services.AddControllersWithViews(x =>
-                {
-                    x.Conventions.Add(new ManagerAreaAuthorization("Admin", "AdminArea"));
-                })
+            {
+                x.Conventions.Add(new ManagerAreaAuthorization("Admin", "AdminArea"));
+            })
                 //выставляем совместимость с asp.net core 3.0
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
+            //Сервис для работы с кешем и сессиями
+            services.AddMemoryCache();
+            services.AddSession();
         }
+
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -79,6 +90,9 @@ namespace MyCompany
 
             //подключаем поддержку статичных файлов в приложении (css, js и т.д.)
             app.UseStaticFiles();
+
+            //Подключаем сессии
+            app.UseSession();
 
             //подключаем систему маршрутизации
             app.UseRouting();

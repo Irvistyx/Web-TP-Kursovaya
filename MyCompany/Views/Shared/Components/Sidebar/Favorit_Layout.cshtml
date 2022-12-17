@@ -1,0 +1,27 @@
+﻿@model IQueryable<Product>
+
+@if (Model.Any())
+{
+    <section>
+        <h4>Самые горячие предложения!</h4>
+        <ul class="small-image-list">
+            @foreach (Product entity in Model)
+            {
+                if (entity.isFavorites == true)
+                {
+                    <li>
+                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@entity.Id">
+                            <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
+                        </a>
+                        <h4>
+                            @entity.Title
+                        </h4>
+                        <p>
+                            @entity.Subtitle
+                        </p>
+                    </li>
+                }
+            }
+        </ul>
+    </section>
+}

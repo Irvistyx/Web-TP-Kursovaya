@@ -1,0 +1,13 @@
+﻿@model MyCompany.Models.ViewComponents.BasketProductViewModel
+
+<div class="container">
+    @foreach (var el in Model.basketInside.listBasket)
+    {
+        <div class="alert-warning mt-3">
+            <b>Товар:</b> @el.product.Title <br />
+            <b>Цена:</b> @el.product.cost.ToString("c")
+        </div>
+    }
+    <hr />
+    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+</div>
