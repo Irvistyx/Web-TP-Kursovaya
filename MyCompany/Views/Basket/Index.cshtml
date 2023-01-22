@@ -1,12 +1,36 @@
 ﻿@model MyCompany.Models.ViewComponents.BasketProductViewModel
 <div class="container">
-    @foreach (var el in Model.basketInside.listBasket)
-    {
-        <div class="alert-warning mt-3">
-            <b>Товар:</b> @el.product.Title <br />
-            <b>Цена:</b> @el.product.cost.ToString("c")
-        </div>
-    }
-    <hr />
-    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    <div>
+        <table>
+            @{int summ = 0;}
+            <tr>
+                <th colspan="2">Товары</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th colspan="2">Управление</th>
+            </tr>
+            @foreach (var el in Model.basketInside.listBasket)
+            {
+                <tr>
+                    <td><img src="~/images/@el.product.TitleImagePath" alt="" class="img" /></td>
+                    <td>@($"{el.product.Title}")</td>
+                    <td>@($"{el.product.cost.ToString("c")}")</td>
+                    <td>
+                        <div class="div-box">
+                            <input asp-for="@el.count" />
+                            <span asp-validation-for="@el.count"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-warning" asp-area="" asp-controller="Basket" asp-action="deleteToBasket" asp-route-id="@el.product.Id">Удалить</a>
+                    </td>
+                    <td> <a class="btn btn-outline-info" asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@el.product.Id">Подробнее</a> </td>
+                </tr>
+                summ = summ + (el.product.cost * el.count);
+            }
+        </table>
+        <p>К оплате: @summ</p>
+    </div>
+    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+
 </div>

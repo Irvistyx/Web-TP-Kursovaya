@@ -14,14 +14,12 @@
         "outputPath": "C:\\Users\\WladR\\Desktop\\Test\\Test\\Web-TP-Kursovaya\\MyCompany\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\C#\\Other\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\C#\\Other\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\WladR\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

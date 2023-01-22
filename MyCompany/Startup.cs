@@ -13,6 +13,7 @@ using MyCompany.Domain.Repositories.Abstract;
 using MyCompany.Domain.Repositories.EntityFramework;
 using MyCompany.Models;
 using MyCompany.Service;
+using System;
 
 namespace MyCompany
 {
@@ -60,29 +61,34 @@ namespace MyCompany
             //настраиваем политику авторизации дл€ Manager area
             services.AddAuthorization(x =>
             {
-                x.AddPolicy("AdminArea", policy => { policy.RequireRole("Admin"); });
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("manager"); });
+                x.AddPolicy("ManagerArea", policy => { policy.RequireRole("admin"); });
             });
             //—ервис дл€ работы с сесси€ми
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //—ервис дл€ многопользовательского использовани€ сайта
+
             services.AddScoped(sp => BasketInside.GetProduct(sp));
 
             //добавл€ем сервисы дл€ контроллеров и представлений (MVC)
             services.AddControllersWithViews(x =>
             {
-                x.Conventions.Add(new ManagerAreaAuthorization("Admin", "AdminArea"));
+                x.Conventions.Add(new ManagerAreaAuthorization("Manager", "AdminArea"));
+                x.Conventions.Add(new ManagerAreaAuthorization("Admin", "ManagerArea"));
             })
-                //выставл€ем совместимость с asp.net core 3.0
+                //»спользование в том числе asp.net core 3.0
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
             //—ервис дл€ работы с кешем и сесси€ми
             services.AddMemoryCache();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(30);
+            });
         }
 
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //!!! пор€док регистрации middleware очень важен
 
             //в процессе разработки нам важно видеть какие именно ошибки
             if (env.IsDevelopment()) 
@@ -105,7 +111,16 @@ namespace MyCompany
             //регистриуруем нужные нам маршруты (ендпоинты)
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("manager", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                    name: "admin_area",
+                    areaName:"Admin", 
+                    pattern:"admin/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "manager_area",
+                    areaName:"Manager", 
+                    pattern:"manager/{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 

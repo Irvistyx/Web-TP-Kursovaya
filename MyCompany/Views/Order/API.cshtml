@@ -1,0 +1,14 @@
+﻿@model Order
+<div>
+    <h3>Товар оплачен?</h3>
+    <form asp-action="API" method="post" class="form-horizontal">
+        <div class="div-box">
+            <input type="hidden" name="order" value="@Model.Email" />
+            <input name="select" type="radio" value="Да" />
+            <span>Да</span> <br />
+            <input checked="checked" name="select" type="radio" value="Нет" />
+            <span>Нет</span> <br />
+            <input class="btn btn-success" type="submit" value="Отправить" />
+        </div>
+    </form>
+</div>

@@ -34,7 +34,7 @@ using MyCompany.Domain.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1974f984767775e1e283813d8440889f854e8db3", @"/Views/Home/Contacts.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"849065681bc18ea82d7cad0dc834fa9e5b4ce8ea", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"39aea419d4b4998ad5121136e388f62806eea450", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Contacts : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TextField>
     {
         #pragma warning disable 1998

@@ -7,7 +7,7 @@ using MyCompany.Domain;
 using MyCompany.Domain.Entities;
 using MyCompany.Service;
 
-namespace MyCompany.Areas.Admin.Controllers
+namespace MyCompany.Areas.Manager.Controllers
 {
     [Area("Manager")]
     public class ProductController : Controller
@@ -42,7 +42,7 @@ namespace MyCompany.Areas.Admin.Controllers
                 return RedirectToAction(nameof(ProductController.Show), nameof(ProductController).CutController());
             }
             return View(model);
-        }
+        } 
 
         [HttpGet]
         public IActionResult Show()

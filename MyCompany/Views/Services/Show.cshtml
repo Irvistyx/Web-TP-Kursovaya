@@ -6,7 +6,7 @@
     ViewBag.Keywords = Model.MetaKeywords;
 }
 
-<div>
+<div class="base">
     <h2>
         @Model.Title
     </h2>
@@ -17,6 +17,6 @@
         <img class="img-block" src="~/images/@Model.TitleImagePath" />
     </div>
 </div>
-<div>
+<div class="base">
     @Html.Raw(Model.Text)
 </div>

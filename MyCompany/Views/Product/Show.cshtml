@@ -15,7 +15,14 @@
     <div>
         <img class="img-block" src="~/images/@Model.TitleImagePath" />
     </div>
+    <div>
+        <p>
+            @Model.cost ₽
+        </p>
+    </div>
+    <div>
+        @Html.Raw(Model.Text)
+    </div>
 </div>
-<div>
-    @Html.Raw(Model.Text)
-</div>
+
+<a class="btn btn-outline-success" asp-area="" asp-controller="Basket" asp-action="addToBasket" asp-route-id="@Model.Id">Добавить в корзину</a>

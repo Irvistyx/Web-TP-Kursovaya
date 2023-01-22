@@ -8,7 +8,6 @@ namespace MyCompany.Domain
         public IServiceItemsRepository ServiceItems { get; set; }
         public IProductItem ProductItem { get; set; }
         public IAllOrder AllOrder { get; set; }
-        //public IBasket Basket { get; set; }
 
 
         public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository, IProductItem productItem, IAllOrder allOrder)
@@ -17,7 +16,6 @@ namespace MyCompany.Domain
             ServiceItems = serviceItemsRepository;
             ProductItem = productItem;
             AllOrder = allOrder;
- //           Basket = basket;
         }
     }
 }

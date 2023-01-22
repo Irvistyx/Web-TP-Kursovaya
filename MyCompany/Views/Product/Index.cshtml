@@ -20,8 +20,9 @@
                         <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
                     </a>
                     <h4>@entity.Title</h4>
+                    <p>@entity.cost ₽</p>
                     <p>@entity.Subtitle</p>
-                    <a class="bnt btn-warning" asp-area="" asp-controller="Basket" asp-action="addToBasket" asp-route-id="@entity.Id">Добавить в корзину</a>
+                    <a class="btn btn-outline-success" asp-area="" asp-controller="Basket" asp-action="addToBasket" asp-route-id="@entity.Id">Добавить в корзину</a>
                 </li>
             }
         }

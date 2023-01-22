@@ -3,7 +3,7 @@ using MyCompany.Domain;
 using MyCompany.Domain.Entities;
 using MyCompany.Service;
 
-namespace MyCompany.Areas.Admin.Controllers
+namespace MyCompany.Areas.Manager.Controllers
 {
     [Area("Manager")]
     public class TextFieldsController : Controller

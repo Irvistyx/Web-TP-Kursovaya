@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using MyCompany.Models;
 
 namespace MyCompany.Controllers
@@ -35,11 +37,6 @@ namespace MyCompany.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
-                        if (model.UserName == "Admin")
-                        {
-                            return Redirect("/admin");
-                        }
-                        else
                         {
                             return Redirect(returnUrl ?? "/");
                         }

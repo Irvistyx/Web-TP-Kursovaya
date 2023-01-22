@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Views\RoleManager\**" />
+    <Compile Remove="Areas\Manager\Views\Review\**" />
+    <Content Remove="Areas\Admin\Views\RoleManager\**" />
+    <Content Remove="Areas\Manager\Views\Review\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\RoleManager\**" />
+    <EmbeddedResource Remove="Areas\Manager\Views\Review\**" />
+    <None Remove="Areas\Admin\Views\RoleManager\**" />
+    <None Remove="Areas\Manager\Views\Review\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Controllers\RoleManagerController.cs" />
+    <Compile Remove="Areas\Manager\Controllers\ReviewController.cs" />
     <Compile Remove="Domain\Entities\Category.cs" />
     <Compile Remove="Domain\Repositories\Abstract\IBasket.cs" />
     <Compile Remove="Domain\Repositories\Abstract\IProductCategory.cs" />
@@ -25,6 +38,7 @@
     <Compile Remove="Migrations\20221217221005_Ititial.Designer.cs" />
     <Compile Remove="Migrations\20221217222052_Ititial.cs" />
     <Compile Remove="Migrations\20221217222052_Ititial.Designer.cs" />
+    <Compile Remove="Models\Review.cs" />
     <Compile Remove="Models\ViewComponents\OrderViewComponent.cs" />
   </ItemGroup>
 
@@ -33,17 +47,37 @@
     <Content Remove="Views\Basket\View.cshtml" />
     <Content Remove="Views\Shared\Components\Sidebar\Order_Layout.cshtml" />
     <Content Remove="Views\Shared\Order.cshtml" />
+    <Content Remove="wwwroot\css\bootstrap-grid.css.map" />
+    <Content Remove="wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Remove="wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Remove="wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Remove="wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Remove="wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Remove="wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Remove="wwwroot\css\bootstrap.css.map" />
+    <Content Remove="wwwroot\css\bootstrap.min.css.map" />
+    <Content Remove="wwwroot\css\bootstrap.rtl.css.map" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Views\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="Views\Shared\Components\Sidebar\Favorit_Layout.cshtml" />
+    <None Include="wwwroot\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\js\bootstrap.esm.js" />
+    <None Include="wwwroot\js\bootstrap.esm.js.map" />
+    <None Include="wwwroot\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\js\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap.js.map" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\bootstrap.min.js.map" />
   </ItemGroup>
 
   <ItemGroup>

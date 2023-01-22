@@ -1,0 +1,10 @@
+﻿<div>
+    @foreach (var users in ViewBag.users)
+    {
+        <div>
+            <p>@users</p>
+            <a class="btn btn-warning div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@users.Id">Редактировать</a>
+            <a class="btn btn-danger div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@users.id">Удалить</a>
+        </div>
+    }
+</div>

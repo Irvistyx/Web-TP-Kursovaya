@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyCompany.Migrations
 {
-    public partial class Ititial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,12 +51,13 @@ namespace MyCompany.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
-                    Adress = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    OrderTime = table.Column<DateTime>(nullable: false)
+                    Name = table.Column<string>(maxLength: 25, nullable: false),
+                    Surname = table.Column<string>(maxLength: 25, nullable: false),
+                    Adress = table.Column<string>(maxLength: 25, nullable: false),
+                    Phone = table.Column<string>(maxLength: 10, nullable: false),
+                    Email = table.Column<string>(maxLength: 25, nullable: false),
+                    OrderTime = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -238,6 +239,7 @@ namespace MyCompany.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     productId = table.Column<Guid>(nullable: true),
                     cost = table.Column<int>(nullable: false),
+                    count = table.Column<int>(nullable: false),
                     BasketInside = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -255,15 +257,16 @@ namespace MyCompany.Migrations
                 name: "OrderDetails",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderID = table.Column<Guid>(nullable: false),
                     ProductID = table.Column<Guid>(nullable: false),
-                    Cost = table.Column<long>(nullable: false)
+                    Cost = table.Column<long>(nullable: false),
+                    Count = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderDetails", x => x.Id);
+                    table.PrimaryKey("PK_OrderDetails", x => x.id);
                     table.ForeignKey(
                         name: "FK_OrderDetails_Orders_OrderID",
                         column: x => x.OrderID,
@@ -283,25 +286,35 @@ namespace MyCompany.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "1d348d66-de6c-47e4-ae1e-10ff1f08913b", "manager", "MANAGER" },
-                    { "04514eu51-5912-4a8f-bhf1-74830vb172gh", "335da1df-28ec-4704-ae8a-77f51788cd7e", "user", "USER" }
+                    { "742345f6-8365-gk35-19bh-hfdsh3h8z8vi", "c5544f3d-2a88-470f-859d-e06126437f46", "admin", "ADMIN" },
+                    { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "3c4f3749-b173-4ac5-9acf-ee4a3a162fd0", "manager", "MANAGER" },
+                    { "04514eu51-5912-4a8f-bhf1-74830vb172gh", "82f2333a-08e5-4bde-82c1-b413e4b4c181", "user", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "5e83d66d-141a-40c7-be22-5959c063d53b", "my@email.com", true, false, null, "MY@EMAIL.COM", "MANAGER", "AQAAAAEAACcQAAAAEJD22IXrxUmzhQiuQS4Cloo1xj+A/cEjRbfvmFZGeuRDMOOVowL/2aCKXDE5d2RRhw==", null, false, "", false, "manager" });
+                values: new object[,]
+                {
+                    { "44546e06-4ad8-4a8f-19bh-74830vb172gh", 0, "14753763-ff29-4e57-9452-abdf9e4dfb6a", "Admin@email.com", true, false, null, "Admin@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKSYWgS2vUSpg76i6XwSYagVRsBUNoMNGrKx1VWPu46+3ixCkGSJrzwjGK4cefWOIg==", null, false, "", false, "admin" },
+                    { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "788307da-77b1-41c4-89bd-5e1bf3daff15", "my@email.com", true, false, null, "MY@EMAIL.COM", "MANAGER", "AQAAAAEAACcQAAAAEIKSM0KZwdpjU2CXqVwYVsT6wyTQzhGk5t16AseauIMU+EBZ+lVG1Wl4An8+FdiY6g==", null, false, "", false, "manager" }
+                });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
                 columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), "PageIndex", new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(1961), null, null, null, null, "Содержание заполняется администратором", "Главная", null },
-                    { new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), "PageServices", new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3728), null, null, null, null, "Содержание заполняется администратором", "Наши услуги", null },
-                    { new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), "PageContacts", new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3792), null, null, null, null, "Содержание заполняется администратором", "Контакты", null },
-                    { new Guid("64576a4c-c59d-443a-84c1-06e6487a137a"), "PageProducts", new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3820), null, null, null, null, "Содержание заполняется администратором", "Товары", null }
+                    { new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), "PageIndex", new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(1669), null, null, null, null, "Содержание заполняется администратором", "Главная", null },
+                    { new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), "PageServices", new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5849), null, null, null, null, "Содержание заполняется администратором", "Наши услуги", null },
+                    { new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), "PageContacts", new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5923), null, null, null, null, "Содержание заполняется администратором", "Контакты", null },
+                    { new Guid("64576a4c-c59d-443a-84c1-06e6487a137a"), "PageProducts", new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5955), null, null, null, null, "Содержание заполняется администратором", "Товары", null }
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "44546e06-4ad8-4a8f-19bh-74830vb172gh", "742345f6-8365-gk35-19bh-hfdsh3h8z8vi" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

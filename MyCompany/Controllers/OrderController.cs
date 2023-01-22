@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MyCompany.Domain.Repositories.Abstract;
 using MyCompany.Models;
+using System;
 
 namespace MyCompany.Controllers
 {
@@ -32,15 +33,40 @@ namespace MyCompany.Controllers
             if(ModelState.IsValid)
             {
                 allOrder.createOrder(order);
-                return RedirectToAction("Complete");
+                return RedirectToAction("API", order);
             }
 
             return View(order);
         }
-        public IActionResult Complete()
+        public IActionResult Fail(string email)
+        {
+            ViewBag.Message = "Заказ не оплачен";
+            allOrder.SetStatus(email, "Отменен");
+            return View();
+        }
+        public IActionResult Complete(string email)
         {
             ViewBag.Message = "Заказ успешно обработан";
+            allOrder.SetStatus(email, "Оплачен");
             return View();
+        }
+        public IActionResult API(Order order)
+        {
+            return View(order);
+        }
+        [HttpPost]
+        public IActionResult API(string order, string select)
+        {
+            if (select == "Да")
+            {
+                return RedirectToAction("Complete", new { email = order });
+            }
+            else if (select == "Нет")
+            {
+                return RedirectToAction("Fail", new { email = order });
+            }
+
+            return View(order);
         }
     }
 }

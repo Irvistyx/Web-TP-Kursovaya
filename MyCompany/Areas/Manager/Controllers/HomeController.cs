@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyCompany.Domain;
 
-namespace MyCompany.Areas.Admin.Controllers
+namespace MyCompany.Areas.Manager.Controllers
 {
     [Area("Manager")]
+    [Route("manager")]
     public class HomeController : Controller
     {
         private readonly DataManager dataManager;

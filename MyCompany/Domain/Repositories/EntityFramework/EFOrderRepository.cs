@@ -29,10 +29,33 @@ namespace MyCompany.Domain.Repositories.EntityFramework
                 {
                     ProductID = el.product.Id,
                     OrderID = order.Id,
-                    Cost = el.product.cost
+                    Cost = el.product.cost,
+                    Count = el.count
                 };
                 context.OrderDetails.Add(orderDetail);
             }
+            context.SaveChanges();
+        }
+
+        public IQueryable<Order> getOrder()
+        {
+            return context.Orders;
+        }
+        public IQueryable<OrderDetail> getOrder(Guid id)
+        {
+            return context.OrderDetails.Where(x => x.OrderID == id);
+        }
+
+        public void SetStatus(string email, string status)
+        {
+            var order = context.Orders.Where(x => x.Email == email);
+            var ord = order.AsEnumerable().Last();
+            ord.Status = status;
+            context.SaveChanges();
+        }
+        public void DeleteOrder(Guid id)
+        {
+            context.Orders.Remove(new Order() { Id = id });
             context.SaveChanges();
         }
     }

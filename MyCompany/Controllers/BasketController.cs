@@ -44,5 +44,14 @@ namespace MyCompany.Controllers
             }
             return RedirectToAction("Index");
         }
+        public RedirectToActionResult deleteToBasket(Guid id)
+        {
+            var item = _basketInside.GetBasket().FirstOrDefault(i => i.product.Id == id);
+            if (item != null)
+            {
+                _basketInside.DeleteToBasket(id);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

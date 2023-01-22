@@ -1,0 +1,18 @@
+﻿@model IQueryable<OrderDetail>
+<div>
+    <table>
+        @foreach (OrderDetail entity in Model)
+        {
+            <tr>
+                <th>ИД заказа</th>
+                <th>ИД товара</th>
+                <th>Количество</th>
+                <th>Стоимость</th>
+            </tr>
+            <td><p>@entity.OrderID</p></td>
+            <td><p>@entity.ProductID</p></td>
+            <td><p>@entity.Count</p></td>
+            <td><p>@entity.Cost</p></td>
+        }
+    </table>
+</div>

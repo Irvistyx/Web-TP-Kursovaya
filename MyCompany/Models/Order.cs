@@ -26,18 +26,19 @@ namespace MyCompany.Models
         [Display(Name = "Введите свой телефон")]
         [DataType(DataType.PhoneNumber)]
         [StringLength(10)]
-        [Required(ErrorMessage = "Длина имени не менее 10 символов")]
+        [Required(ErrorMessage = "Длина телефона не менее 10 символов")]
         public string Phone { get; set; }
-        [Display(Name = "Введите емаил")]
+        [Display(Name = "Введите @mail")]
         [DataType(DataType.EmailAddress)]
         [StringLength(25)]
-        [Required(ErrorMessage = "Длина имени не менее 5 символов")]
+        [Required(ErrorMessage = "Длина @mail не менее 5 символов")]
         public string Email { get; set; }
         [BindNever]
         [ScaffoldColumn(false)]
         public DateTime OrderTime { get; set; }
         [BindNever]
-        public List<OrderDetail> OrderDetails { get; set; }
+        public OrderDetail OrderDetails { get; set; }
+        public string Status { get; set; }
 
     }
 }

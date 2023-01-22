@@ -48,15 +48,22 @@ namespace MyCompany.Migrations
                     b.HasData(
                         new
                         {
+                            Id = "742345f6-8365-gk35-19bh-hfdsh3h8z8vi",
+                            ConcurrencyStamp = "c5544f3d-2a88-470f-859d-e06126437f46",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "1d348d66-de6c-47e4-ae1e-10ff1f08913b",
+                            ConcurrencyStamp = "3c4f3749-b173-4ac5-9acf-ee4a3a162fd0",
                             Name = "manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
                             Id = "04514eu51-5912-4a8f-bhf1-74830vb172gh",
-                            ConcurrencyStamp = "335da1df-28ec-4704-ae8a-77f51788cd7e",
+                            ConcurrencyStamp = "82f2333a-08e5-4bde-82c1-b413e4b4c181",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -153,15 +160,31 @@ namespace MyCompany.Migrations
                     b.HasData(
                         new
                         {
+                            Id = "44546e06-4ad8-4a8f-19bh-74830vb172gh",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "14753763-ff29-4e57-9452-abdf9e4dfb6a",
+                            Email = "Admin@email.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Admin@EMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKSYWgS2vUSpg76i6XwSYagVRsBUNoMNGrKx1VWPu46+3ixCkGSJrzwjGK4cefWOIg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        },
+                        new
+                        {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e83d66d-141a-40c7-be22-5959c063d53b",
+                            ConcurrencyStamp = "788307da-77b1-41c4-89bd-5e1bf3daff15",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "MANAGER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJD22IXrxUmzhQiuQS4Cloo1xj+A/cEjRbfvmFZGeuRDMOOVowL/2aCKXDE5d2RRhw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIKSM0KZwdpjU2CXqVwYVsT6wyTQzhGk5t16AseauIMU+EBZ+lVG1Wl4An8+FdiY6g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -230,6 +253,11 @@ namespace MyCompany.Migrations
                     b.ToTable("AspNetUserRoles");
 
                     b.HasData(
+                        new
+                        {
+                            UserId = "44546e06-4ad8-4a8f-19bh-74830vb172gh",
+                            RoleId = "742345f6-8365-gk35-19bh-hfdsh3h8z8vi"
+                        },
                         new
                         {
                             UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
@@ -380,7 +408,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(1961),
+                            DateAdded = new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(1669),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -388,7 +416,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3728),
+                            DateAdded = new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5849),
                             Text = "Содержание заполняется администратором",
                             Title = "Наши услуги"
                         },
@@ -396,7 +424,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3792),
+                            DateAdded = new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5923),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         },
@@ -404,7 +432,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("64576a4c-c59d-443a-84c1-06e6487a137a"),
                             CodeWord = "PageProducts",
-                            DateAdded = new DateTime(2022, 12, 17, 22, 22, 47, 804, DateTimeKind.Utc).AddTicks(3820),
+                            DateAdded = new DateTime(2023, 1, 20, 13, 11, 44, 764, DateTimeKind.Utc).AddTicks(5955),
                             Text = "Содержание заполняется администратором",
                             Title = "Товары"
                         });
@@ -421,6 +449,9 @@ namespace MyCompany.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("cost")
+                        .HasColumnType("int");
+
+                    b.Property<int>("count")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("productId")
@@ -440,22 +471,35 @@ namespace MyCompany.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Adress")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.Property<DateTime>("OrderTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.HasKey("Id");
 
@@ -464,12 +508,15 @@ namespace MyCompany.Migrations
 
             modelBuilder.Entity("MyCompany.Models.OrderDetail", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<long>("Cost")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Count")
                         .HasColumnType("bigint");
 
                     b.Property<Guid>("OrderID")
@@ -478,7 +525,7 @@ namespace MyCompany.Migrations
                     b.Property<Guid>("ProductID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.HasIndex("OrderID");
 

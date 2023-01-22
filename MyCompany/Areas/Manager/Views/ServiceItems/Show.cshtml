@@ -20,14 +20,9 @@
             <td>@($"{entity.MetaTitle}")</td>
             <td>@($"{entity.MetaDescription}")</td>
             <td>@($"{entity.MetaKeywords}")</td>
-            <td> <a asp-area="Manager" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@entity.Id">редактировать</a> </td>
-            <td>
-                <form style="display: inline-block;" id="form-@entity.Id" asp-area="Manager" asp-controller="Product" asp-action="Delete" method="post">
-                    <input type="hidden" name="id" value="@entity.Id">
-                    <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">удалить</a>
-                </form>
-            </td>
-            <td> <a asp-area="" asp-controller="ServiceItems" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a> </td>
+            <td> <a class="btn btn-warning div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@entity.Id">Редактировать</a> </td>
+            <td> <a class="btn btn-danger div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@entity.Id">Удалить</a> </td>
+            <td> <a class="btn btn-info div-box" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a> </td>
         </tr>
             }
         </table>
@@ -35,5 +30,5 @@
 }
 else
 {
-    <h1>В данный момент товары отсутвствуют</h1>
+    <h1>В данный момент услуги отсутвствуют</h1>
 }

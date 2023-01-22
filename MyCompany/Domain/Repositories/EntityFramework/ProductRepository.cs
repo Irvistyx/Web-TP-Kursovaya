@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyCompany.Domain.Entities;
+using MyCompany.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace MyCompany.Domain.Repositories.Abstract
 
         public void DeleteProductItem(Guid id)
         {
+            var Bask = context.Baskets.Where(x => x.product.Id == id);
+            context.Baskets.RemoveRange(Bask);
             context.Products.Remove(new Product() { Id = id });
             context.SaveChanges();
         }

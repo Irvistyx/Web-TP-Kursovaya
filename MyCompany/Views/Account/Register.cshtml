@@ -1,31 +1,30 @@
 ﻿@model RegisterViewModel
 <div>
-    <h1>Регистрация</h1>
-    <div class="div-box">
-        <form asp-area="" asp-controller="Account" asp-action="Register" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
-            <div asp-validation-summary="All"></div>
-            <div>
-                <label asp-for="Name"></label>
-                <input asp-for="Name" />
+    <h1 class="display-1">Регистрация</h1>
+    <div class="mb-3">
+        <form class="px-4 py-3" asp-area="" asp-controller="Account" asp-action="Register" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Имя пользователя"/>
                 <span asp-validation-for="Name"></span>
             </div>
-            <div>
-                <label asp-for="Email"></label>
-                <input asp-for="Email" />
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="your@mail.ru"/>
                 <span asp-validation-for="Email"></span>
             </div>
-            <div>
-                <label asp-for="Password"></label>
-                <input asp-for="Password" />
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Пароль"/>
                 <span asp-validation-for="Password"></span>
             </div>
-            <div>
-                <label asp-for="PasswordConfirm"></label>
-                <input asp-for="PasswordConfirm" />
+            <div class="mb-3">
+                <label asp-for="PasswordConfirm" class="form-label"></label>
+                <input asp-for="PasswordConfirm" class="form-control" placeholder="Повторите пароль"/>
                 <span asp-validation-for="PasswordConfirm"></span>
             </div>
             <div>
-                <input type="submit" value="Зарегестрироваться" />
+                <input class="btn btn-primary" type="submit" value="Зарегестрироваться" />
             </div>
         </form>
     </div>

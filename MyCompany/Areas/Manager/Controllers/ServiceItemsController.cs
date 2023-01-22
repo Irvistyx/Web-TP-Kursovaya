@@ -7,7 +7,7 @@ using MyCompany.Domain;
 using MyCompany.Domain.Entities;
 using MyCompany.Service;
 
-namespace MyCompany.Areas.Admin.Controllers
+namespace MyCompany.Areas.Manager.Controllers
 {
     [Area("Manager")]
     public class ServiceItemsController : Controller
@@ -19,7 +19,6 @@ namespace MyCompany.Areas.Admin.Controllers
             this.dataManager = dataManager;
             this.hostingEnvironment = hostingEnvironment;
         }
-
         public IActionResult Edit(Guid id)
         {
             var entity = id == default ? new ServiceItem() : dataManager.ServiceItems.GetServiceItemById(id);
