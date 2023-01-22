@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MyCompany.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace MyCompany.Areas.Admin.Controllers
 {

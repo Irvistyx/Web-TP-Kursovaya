@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyCompany.Domain;
 using MyCompany.Domain.Repositories.Abstract;
-using MyCompany.Models;
-using MyCompany.Service;
 using System;
 
 namespace MyCompany.Areas.Manager.Controllers

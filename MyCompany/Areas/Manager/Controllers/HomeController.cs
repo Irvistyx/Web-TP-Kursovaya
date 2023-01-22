@@ -4,7 +4,6 @@ using MyCompany.Domain;
 namespace MyCompany.Areas.Manager.Controllers
 {
     [Area("Manager")]
-    [Route("manager")]
     public class HomeController : Controller
     {
         private readonly DataManager dataManager;

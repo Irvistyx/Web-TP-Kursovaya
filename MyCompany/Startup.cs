@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyCompany.Domain;
-using MyCompany.Domain.Repositories;
 using MyCompany.Domain.Repositories.Abstract;
 using MyCompany.Domain.Repositories.EntityFramework;
 using MyCompany.Models;
@@ -61,8 +60,8 @@ namespace MyCompany
             //настраиваем политику авторизации для Manager area
             services.AddAuthorization(x =>
             {
-                x.AddPolicy("AdminArea", policy => { policy.RequireRole("manager"); });
-                x.AddPolicy("ManagerArea", policy => { policy.RequireRole("admin"); });
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+                x.AddPolicy("ManagerArea", policy => { policy.RequireRole("manager"); });
             });
             //Сервис для работы с сессиями
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -73,8 +72,8 @@ namespace MyCompany
             //добавляем сервисы для контроллеров и представлений (MVC)
             services.AddControllersWithViews(x =>
             {
-                x.Conventions.Add(new ManagerAreaAuthorization("Manager", "AdminArea"));
-                x.Conventions.Add(new ManagerAreaAuthorization("Admin", "ManagerArea"));
+                x.Conventions.Add(new ManagerAreaAuthorization("Admin", "AdminArea"));
+                x.Conventions.Add(new ManagerAreaAuthorization("Manager", "ManagerArea"));
             })
                 //Использование в том числе asp.net core 3.0
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
@@ -90,11 +89,10 @@ namespace MyCompany
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            //в процессе разработки нам важно видеть какие именно ошибки
             if (env.IsDevelopment()) 
                 app.UseDeveloperExceptionPage();
 
-            //подключаем поддержку статичных файлов в приложении (css, js и т.д.)
+            //подключаем поддержку статичных файлов в приложении
             app.UseStaticFiles();
 
             //Подключаем сессии

@@ -39,6 +39,7 @@
     <Compile Remove="Migrations\20221217222052_Ititial.cs" />
     <Compile Remove="Migrations\20221217222052_Ititial.Designer.cs" />
     <Compile Remove="Models\Review.cs" />
+    <Compile Remove="Models\User.cs" />
     <Compile Remove="Models\ViewComponents\OrderViewComponent.cs" />
   </ItemGroup>
 

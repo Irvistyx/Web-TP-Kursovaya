@@ -4,16 +4,16 @@
         <table>
             @{int summ = 0;}
             <tr>
-                <th colspan="2">Товары</th>
+                <th>Товары</th>
                 <th>Цена</th>
                 <th>Количество</th>
-                <th colspan="2">Управление</th>
+                <th>Управление</th>
             </tr>
             @foreach (var el in Model.basketInside.listBasket)
             {
                 <tr>
-                    <td><img src="~/images/@el.product.TitleImagePath" alt="" class="img" /></td>
-                    <td>@($"{el.product.Title}")</td>
+                    <td><img src="~/images/@el.product.TitleImagePath" alt="" class="img" />
+                        @($"{el.product.Title}")</td>
                     <td>@($"{el.product.cost.ToString("c")}")</td>
                     <td>
                         <div class="div-box">
@@ -22,9 +22,8 @@
                         </div>
                     </td>
                     <td>
-                        <a class="btn btn-outline-warning" asp-area="" asp-controller="Basket" asp-action="deleteToBasket" asp-route-id="@el.product.Id">Удалить</a>
-                    </td>
-                    <td> <a class="btn btn-outline-info" asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@el.product.Id">Подробнее</a> </td>
+                         <a class="btn btn-outline-danger" asp-area="" asp-controller="Basket" asp-action="deleteToBasket" asp-route-id="@el.product.Id">Удалить</a>
+                         <a class="btn btn-outline-info" asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@el.product.Id">Подробнее</a> </td>
                 </tr>
                 summ = summ + (el.product.cost * el.count);
             }

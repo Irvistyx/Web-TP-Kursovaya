@@ -56,10 +56,12 @@ th {
 
     th:first-child {
         text-align: left;
+        border: 2px solid #56433D;
     }
 
     th:last-child {
         border-right: none;
+        border: 2px solid #56433D;
     }
 
 td {
@@ -73,12 +75,12 @@ td {
 }
 
     td:first-child {
-        border-left: 2px solid #56433D;
-        border-right: none;
+        border: 2px solid #56433D;
     }
 
     td:nth-child(2) {
         text-align: left;
+        border: 2px solid #56433D;
     }
 
 body {
@@ -186,7 +188,10 @@ a {
     text-decoration: none; }
 
 * > p:last-child {
-  margin-bottom: 0 !important; }
+  margin-bottom: 0 !important; 
+  color: navajowhite;
+}
+  
 
 section, article {
   margin: 0 0 60px 0; }
@@ -1285,5 +1290,6 @@ ul.link-list li {
 
 .img-block {
   display: block;
-  max-width: 30%;
+  max-width: 150px;
+  max-height: 75px;
   margin: 0 auto; }

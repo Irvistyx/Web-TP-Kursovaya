@@ -10,7 +10,7 @@
                 <th>Название вкладки</th>
                 <th>Краткое описание</th>
                 <th>Ключевые знаки</th>
-                <th colspan="3">Управление</th>
+                <th>Управление</th>
             </tr>
             @foreach (ServiceItem entity in Model)
             {
@@ -20,9 +20,9 @@
             <td>@($"{entity.MetaTitle}")</td>
             <td>@($"{entity.MetaDescription}")</td>
             <td>@($"{entity.MetaKeywords}")</td>
-            <td> <a class="btn btn-warning div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@entity.Id">Редактировать</a> </td>
-            <td> <a class="btn btn-danger div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@entity.Id">Удалить</a> </td>
-            <td> <a class="btn btn-info div-box" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a> </td>
+            <td> <a class="btn btn-warning div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@entity.Id">Редактировать</a>
+                 <a class="btn btn-danger div-box" asp-area="Manager" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@entity.Id">Удалить</a>
+                 <a class="btn btn-info div-box" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a> </td>
         </tr>
             }
         </table>

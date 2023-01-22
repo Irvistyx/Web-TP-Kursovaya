@@ -1,9 +1,4 @@
 ﻿using MyCompany.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyCompany.Models
 {
@@ -14,6 +9,5 @@ namespace MyCompany.Models
         public ushort cost { get; set; }
         public ushort count { get; set; }
         public string BasketInside { get; set; }
-       // public string idUser { get; set; }
     }
 }

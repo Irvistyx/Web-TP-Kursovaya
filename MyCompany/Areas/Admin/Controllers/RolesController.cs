@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using MyCompany.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace MyCompany.Controllers
 {

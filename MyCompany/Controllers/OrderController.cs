@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyCompany.Domain.Repositories.Abstract;
 using MyCompany.Models;
-using System;
 
 namespace MyCompany.Controllers
 {

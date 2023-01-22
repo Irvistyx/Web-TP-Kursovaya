@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyCompany.Domain.Entities;
-using MyCompany.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;

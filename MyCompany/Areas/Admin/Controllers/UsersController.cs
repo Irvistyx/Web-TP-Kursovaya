@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MyCompany.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace MyCompany.Controllers
 {
@@ -26,7 +25,7 @@ namespace MyCompany.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Name = model.Name, Adress = model.Adress };
+                IdentityUser user = new IdentityUser { Email = model.Email, UserName = model.Name};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
