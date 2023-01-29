@@ -7,12 +7,16 @@
   <ItemGroup>
     <Compile Remove="Areas\Admin\Views\RoleManager\**" />
     <Compile Remove="Areas\Manager\Views\Review\**" />
+    <Compile Remove="wwwroot\webfonts\**" />
     <Content Remove="Areas\Admin\Views\RoleManager\**" />
     <Content Remove="Areas\Manager\Views\Review\**" />
+    <Content Remove="wwwroot\webfonts\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\RoleManager\**" />
     <EmbeddedResource Remove="Areas\Manager\Views\Review\**" />
+    <EmbeddedResource Remove="wwwroot\webfonts\**" />
     <None Remove="Areas\Admin\Views\RoleManager\**" />
     <None Remove="Areas\Manager\Views\Review\**" />
+    <None Remove="wwwroot\webfonts\**" />
   </ItemGroup>
 
   <ItemGroup>

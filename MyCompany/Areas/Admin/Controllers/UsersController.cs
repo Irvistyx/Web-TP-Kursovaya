@@ -62,7 +62,7 @@ namespace MyCompany.Controllers
                 if (user != null)
                 {
                     user.Email = model.Email;
-                    user.UserName = model.Email;
+                    user.UserName = model.Name;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)

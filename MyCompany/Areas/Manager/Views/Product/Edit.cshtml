@@ -30,12 +30,12 @@
                 <textarea asp-for="Text"></textarea>
                 <span asp-validation-for="Text"></span>
             </div>
+            <div style="height: 120px">
+                <img class="img-block" src="~/images/@Model.TitleImagePath" />
+            </div>
             <div class="div-box">
                 <label asp-for="TitleImagePath"></label>
                 <input type="file" name="titleImageFile" id="titleImageFile" />
-                <div>
-                    <img class="img-block" src="~/images/@Model.TitleImagePath" />
-                </div>
             </div>
             <div class="div-box">
                 <label asp-for="cost"></label>

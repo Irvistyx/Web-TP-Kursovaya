@@ -19,6 +19,7 @@ namespace MyCompany.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult checkout(Order order)
         {
